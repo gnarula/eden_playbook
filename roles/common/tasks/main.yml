@@ -19,6 +19,9 @@
 - name: Install git
   apt: name=git-core state=latest
 
+- name: Install libodbc1
+  apt: name=libodbc1 state=latest
+
 - name: Install Exim4
   apt: name={{item}} state=latest
   with_items:
