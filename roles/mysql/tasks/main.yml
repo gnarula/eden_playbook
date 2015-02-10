@@ -48,5 +48,5 @@
   mysql_user: "name=sahana password={{ password }} priv=*.*:ALL host=localhost state=present"
 
 - name: Copying 000_config.py
-  command: cp /home/web2py/applications/eden/private/templates/000_config.py /home/web2py/applications/eden/models
+  command: cp /home/web2py/applications/eden/modules/templates/000_config.py /home/web2py/applications/eden/models
 

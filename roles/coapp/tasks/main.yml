@@ -9,6 +9,7 @@
     - python-xlwt
     - python-dev
     - python-pip
+    - libodbc1
 
 - name: Create web2py user
   command: adduser --system --disabled-password web2py
@@ -17,16 +18,16 @@
   group: name=web2py state=present
 
 - name: Clone Web2py
-  git: repo=git://github.com/web2py/web2py.git dest=/home/web2py
+  git: repo=git://github.com/web2py/web2py.git dest=/home/web2py accept_hostkey=yes
 
 - name: Copy routes.py
   copy: src=routes.py dest=/home/web2py/routes.py
 
 - name: Clone Coapp
-  git: repo=git://github.com/gnarula/eden_deployment dest=/home/web2py/applications/eden_deployment
+  git: repo=git://github.com/flavour/eden dest=/home/web2py/applications/eden_deployment accept_hostkey=yes
 
 - name: Move 000_config.py
-  command: cp /home/web2py/applications/eden_deployment/private/templates/000_config.py /home/web2py/applications/eden_deployment/models
+  command: cp /home/web2py/applications/eden_deployment/modules/templates/000_config.py /home/web2py/applications/eden_deployment/models
 
 - name: Editing 000_config.py
   lineinfile: dest=/home/web2py/applications/eden_deployment/models/000_config.py

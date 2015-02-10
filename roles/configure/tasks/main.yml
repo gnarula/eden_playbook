@@ -1,7 +1,7 @@
 ---
 
 - name: Copying 000_config.py for Production
-  command: cp /home/{{ type }}/applications/eden/private/templates/000_config.py /home/{{ type }}/applications/eden/models
+  command: cp /home/{{ type }}/applications/eden/modules/templates/000_config.py /home/{{ type }}/applications/eden/models
   when: type == 'prod' or dtype == 'beforeprod'
 
 - name: Copying 000_config.py
